@@ -5,8 +5,8 @@ import className from "classnames";
 
 
 export default function Button(props) {
-   className('button', 'button--confirm');
-   className('button', 'button--danger');
+   // className('button', 'button--confirm');
+   // className('button', 'button--danger');
 
    let buttonClass = className("button",{
       "button--confirm": props.confirm,
