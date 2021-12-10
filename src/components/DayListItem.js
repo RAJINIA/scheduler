@@ -19,18 +19,8 @@ function DayListItem(props) {
     }
   }
 
-  // return (
-  //   <li onClick = {() => props.setDay(props.name)}>
-  //     <h2 className="text--regular">{props.name}</h2>
-  //     <h3 className="text--light">{props.spots} spots remaining</h3>
-  //   </li>
-  // );
-
   return (
-    <li 
-      className={dayClass} 
-      onClick= {() => props.setDay(props.name)}
-    >
+    <li className={dayClass} onClick={() => props.setDay(props.name)} selected={props.selected}>
       <h2 className="text--regular">{props.name}</h2>
       <h3 className="text--light">{formatSpots(props.spots)}</h3>
     </li>
