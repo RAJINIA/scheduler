@@ -8,9 +8,14 @@ import Status from './Status';
 import Error from './Error';
 import Form from './Form';
 
+
 const Appointment = (props) => {
+  console.log(props);
   return (
-    <article className="appointment"></article>
+    <article className="appointment">
+      <Header time={props.time} />
+      {props.interview ? <Show /> : <Empty />}
+    </article>
   );
 }
 

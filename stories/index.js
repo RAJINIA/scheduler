@@ -18,6 +18,7 @@ import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
 import Form from "components/Appointment/Form";
+import Application from 'components/Application';
 
 import { act } from "@testing-library/react";
 
