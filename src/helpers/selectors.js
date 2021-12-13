@@ -10,7 +10,19 @@ const getAppointmentsForDay = (state, day) => {
     }
   }
   return result;
-}
+};
+
+const getInterview = (state, interview) => {
+  const result = {};
+  if (interview) {
+    result["student"] = interview.student;
+    result["interviewer"] = state.interviewers[interview.interviewer]
+  } else {
+    return null;
+  }
+  return result;
+};
 
 
 export default getAppointmentsForDay;
+export {getInterview};
