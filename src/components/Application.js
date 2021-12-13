@@ -5,7 +5,7 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 import getAppointmentsForDay from "helpers/selectors";
-import { getInterview } from "helpers/selectors";
+import { getInterview, getInterviewersForDay } from "helpers/selectors";
 
 
 const Application = (props) => {
@@ -14,11 +14,13 @@ const Application = (props) => {
     days: [],
     appointments: {},
     interviewers: {}
-  })
+  });
 
   // const setDay = day => setState({ ...state, day });
   const setDay = (day) => setState((prev) => ({ ...prev, day }));
   const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const interviewers = getInterviewersForDay(state, state.day);
+
 
   useEffect(() => {
     const baseURL = "http://localhost:8001"
@@ -70,6 +72,7 @@ const Application = (props) => {
               id={appointment.id} 
               time={appointment.time} 
               interview={interview} 
+              interviewers={interviewers}
             />
           )
         }
