@@ -13,6 +13,8 @@ const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = 'CREATE';
 const SAVING = 'SAVING';
+const DELETING = 'DELETING';
+const CONFIRM = 'CONFIRM';
 
 
 const Appointment = (props) => {
@@ -21,13 +23,13 @@ const Appointment = (props) => {
   );
 
   useEffect(() => {
-    if (props.interview === null && mode === SHOW) {
+    console.log("****", props.interview);
+    if (props.interview === null) {
       transition(EMPTY);
-    }
-    if (props.interview && mode === EMPTY) {
+    } else if (props.interview) {
       transition(SHOW);
     }
-  }, [mode, transition, props.interview]);
+  }, [props.interview]);
 
   const save = (name, interviewer) => {
     const newInterview = {
@@ -36,7 +38,11 @@ const Appointment = (props) => {
     };
     transition(SAVING)
     props.bookInterview(props.id, newInterview);
-    transition(SHOW);
+  };
+
+  const deleteAppointment = () => {
+    transition(DELETING);
+    props.cancelInterview(props.id);
   };
   
   return(
@@ -56,10 +62,19 @@ const Appointment = (props) => {
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           interviewers={props.interviewers}
+          // onDelete={deleteAppointment}
+          onDelete={() => transition(CONFIRM)}
         />
       )}
       { mode === SAVING && <Status message="SAVING ..." /> }
-
+      {mode === DELETING && <Status message='DELETING ...' />}
+      {mode === CONFIRM && (
+        <Confirm
+          message='Delete the appointment?'
+          onCancel={back}
+          onConfirm={deleteAppointment}
+        />
+      )}
     </article>
   );
 }

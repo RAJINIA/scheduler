@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Status = () => {
+const Status = (props) => {
   return (
     <main className="appointment__card appointment__card--status">
       <img
@@ -9,7 +9,7 @@ const Status = () => {
         src="images/status.png"
         alt="Loading"
       />
-      <h1 className="text--semi-bold">Deleting</h1>
+      <h1 className="text--semi-bold">{props.message}</h1>
     </main>
   );
 }
