@@ -6,6 +6,7 @@ import DayList from "./DayList";
 import Appointment from "./Appointment";
 import getAppointmentsForDay from "helpers/selectors";
 import { getInterview, getInterviewersForDay } from "helpers/selectors";
+import { transitions } from "polished";
 
 
 const Application = (props) => {
@@ -38,6 +39,26 @@ const Application = (props) => {
     });
   }, []);
 
+
+  const bookInterview = (id, interview) => {
+    console.log(id, interview);
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    
+    setState((prev) => ({ 
+      ...prev, 
+      appointments: appointments
+    }));
+    return axios.put(`/api/appointments/${id}`, appointment)  
+  };
 
   return (
     <main className="layout">
@@ -73,6 +94,7 @@ const Application = (props) => {
               time={appointment.time} 
               interview={interview} 
               interviewers={interviewers}
+              bookInterview={bookInterview}
             />
           )
         }
