@@ -41,8 +41,6 @@ const Application = (props) => {
 
 
   const bookInterview = (id, interview) => {
-    console.log(id, interview);
-
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
@@ -51,9 +49,9 @@ const Application = (props) => {
       ...state.appointments,
       [id]: appointment,
     };
-
+    console.log("###", appointment);
     return axios
-      .put(`/api/appointments/${id}`, { interview })
+      .put(`/api/appointments/${id}`, appointment )
       .then((res) => {
         setState({ ...state, appointments });
       })
