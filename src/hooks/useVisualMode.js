@@ -7,9 +7,11 @@ const useVisualMode = (initial) => {
   const transition = (newMode, replace = false) => {
     if (replace) {  
       setMode(newMode);
+      setHistory(prev => [...prev.slice(0, -1), newMode])
     } else {
       setMode(newMode);
-      setHistory([...history, newMode]) ;
+      // setHistory([...history, newMode]) ;
+      setHistory(prev => [...prev, newMode]) 
     }
   };
 

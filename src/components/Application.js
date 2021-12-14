@@ -49,15 +49,12 @@ const Application = (props) => {
       ...state.appointments,
       [id]: appointment,
     };
-    console.log("###", appointment);
     return axios
       .put(`/api/appointments/${id}`, appointment )
       .then((res) => {
         setState({ ...state, appointments });
       })
-      .catch((err) => {
-        console.log(err);
-      }); 
+     
   };
 
   const cancelInterview = (id) => {
@@ -75,9 +72,7 @@ const Application = (props) => {
       .then((res) => {
         setState({ ...state, appointments });
       })
-      .catch((err) => {
-        console.log(err);
-      }); 
+      
   };
 
 
