@@ -31,7 +31,7 @@ const Appointment = (props) => {
       interviewer: interviewer,
     };
     transition(SAVING);
-    props.bookInterview(props.id, props.interview)
+    props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE));
   };
@@ -95,4 +95,3 @@ return (
 }
 
 export default Appointment;
-
