@@ -1,6 +1,8 @@
 import React from 'react';
 import className from 'classnames';
 import 'components/InterviewerListItem.scss';
+import PropTypes from 'prop-types';
+
 
 const InterviewerListItem = ({ name, avatar, selected, setInterviewer }) => {
   const styleClass = className('interviewers__item', {
