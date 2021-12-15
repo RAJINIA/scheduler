@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Button from '../Button';
 import InterviewerList from '../InterviewerList';
+import PropTypes from 'prop-types';
+
 
 const Form = (props) => {
   const [name, setName] = useState(props.name || '');
-  const [nameEmptyError, setNameEmptyError] = useState('');
+  const [error, setError] = useState('');
   const [noInterviewerError, setNoInterviewerError] = useState('');
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
@@ -21,9 +23,9 @@ const Form = (props) => {
   const validate = () => {
     // check student name is inputted
     if (name) {
-      setNameEmptyError('');
+      setError('');
     } else {
-      setNameEmptyError('Student name cannot be blank');
+      setError('Student name cannot be blank');
       return;
     }
 
@@ -52,7 +54,7 @@ const Form = (props) => {
             data-testid='student-name-input'
           />
           <section className='appointment__validation'>
-            {nameEmptyError}
+            {error}
           </section>
           <InterviewerList
             interviewers={props.interviewers}
