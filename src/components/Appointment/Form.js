@@ -29,14 +29,6 @@ const Form = (props) => {
       return;
     }
 
-    // check if an interviewer is selected
-    // if (interviewer) {
-    //   setNoInterviewerError('');
-    // } else {
-    //   setNoInterviewerError('Please select an interviewer');
-    //   return;
-    // }
-
     props.onSave(name, interviewer);
   };
 
