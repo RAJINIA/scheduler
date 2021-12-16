@@ -2,15 +2,15 @@
 A React interview scheduler webapp for booking, editing and canceling interviews for students and mentors.
 
 ## Final Product
-### Select Different Days 
+Select Different Days 
 !["Select Different Days"](https://github.com/RAJINIA/scheduler/blob/master/docs/Access_All_Days.gif)
-### Book an Interview and Spot Changings
+Book an Interview and Spot Changing
 !["Book an Interview and Spot Changings"](https://github.com/RAJINIA/scheduler/blob/master/docs/AddAppointments%20%26%20SpotChanging.gif)
-### Edit Interview Appointment
+Edit Interview Appointment
 !["Edit Interview Appointment"](https://github.com/RAJINIA/scheduler/blob/master/docs/Edit_Appointment.gif)
-### Delete Interview Appointments and Spot Changing
+Delete Interview Appointments and Spot Changing
 !["Delete Interview Appointments and Spot Changing"](https://github.com/RAJINIA/scheduler/blob/master/docs/DeleteAppointment%20%26%20SpotsChanging.gif)
-### Error Message
+Error Message
 !["Error Message"](https://github.com/RAJINIA/scheduler/blob/master/docs/Error_Message.gif)
 
 ## Tech Stack
