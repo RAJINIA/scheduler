@@ -10,7 +10,6 @@ const useVisualMode = (initial) => {
       setHistory(prev => [...prev.slice(0, -1), newMode])
     } else {
       setMode(newMode);
-      // setHistory([...history, newMode]) ;
       setHistory(prev => [...prev, newMode]) 
     }
   };
