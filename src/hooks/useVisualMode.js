@@ -6,23 +6,23 @@ const useVisualMode = (initial) => {
 
   const transition = (newMode, replace = false) => {
     if (replace) {  
-      setMode(newMode);
       setHistory(prev => [...prev.slice(0, -1), newMode])
+      return setMode(newMode);
     } else {
-      setMode(newMode);
       setHistory(prev => [...prev, newMode]) 
+      return setMode(newMode);
     }
   };
 
   const back = () => {
-    if (history.length !== 0) {
-      history.pop() 
-      setMode(history[history.length - 1]);
+    if (history.length > 1) {
+      setHistory(prev => [...prev.slice(0, -1)])
+      return setMode(history[history.length - 1]);
     }
   };
 
   return {
-    mode,
+    mode: history[history.length - 1],
     transition,
     back,
   };
