@@ -30,17 +30,17 @@ const Appointment = (props) => {
       student: name,
       interviewer: interviewer,
     };
-    transition(SAVING);
+    transition(SAVING, true);
     props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
-      .catch(error => transition(ERROR_SAVE));
+      .catch(error => transition(ERROR_SAVE, true));
   };
 
   const deleteAppointment = () => {
-    transition(DELETING);
+    transition(DELETING, true);
     props.cancelInterview(props.id)
       .then(() => transition(EMPTY))
-      .catch(error => transition(ERROR_DELETE));
+      .catch(error => transition(ERROR_DELETE, true));
   };
 
 
@@ -68,7 +68,7 @@ return (
     )}
     {mode === EDIT && (
       <Form
-        student={props.interview.student}
+        name={props.interview.student}
         interviewer={props.interview.interviewer.id}
         interviewers={props.interviewers}
         onCancel={back}
